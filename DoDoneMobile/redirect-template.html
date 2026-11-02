@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DoDone Password Reset</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .button {
+            background-color: #28a745;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            font-weight: bold;
+            font-size: 16px;
+            margin: 10px;
+        }
+        .button:hover {
+            background-color: #218838;
+        }
+        .fallback {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            border: 1px solid #dee2e6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>DoDone Password Reset</h2>
+        <p>Click the button below to reset your password in the DoDone app:</p>
+        
+        <a href="javascript:openApp()" class="button">Open DoDone App</a>
+        
+        <div class="fallback">
+            <h4>App not installed?</h4>
+            <p>If the app doesn't open, please:</p>
+            <ol style="text-align: left;">
+                <li>Make sure the DoDone app is installed</li>
+                <li>Try copying this link and opening it in a browser: 
+                    <br><code id="deepLink">dodone://reset-password?token={TOKEN}&email={EMAIL}</code>
+                </li>
+                <li>Or use the browser version instead</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        // Get URL parameters
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        // Extract token and email from URL
+        var token = getUrlParameter('token');
+        var email = getUrlParameter('email');
+        
+        // Update the fallback deep link
+        document.getElementById('deepLink').textContent = 
+            `dodone://reset-password?token=${token}&email=${email}`;
+
+        function openApp() {
+            var deepLink = `dodone://reset-password?token=${token}&email=${email}`;
+            
+            // Try to open the deep link
+            window.location.href = deepLink;
+            
+            // Fallback: show instructions after a delay
+            setTimeout(function() {
+                alert('If the app didn\'t open, please make sure DoDone is installed on your device.');
+            }, 2000);
+        }
+
+        // Auto-redirect after 3 seconds
+        setTimeout(function() {
+            if (token) {
+                openApp();
+            }
+        }, 3000);
+    </script>
+</body>
+</html>
+</html>

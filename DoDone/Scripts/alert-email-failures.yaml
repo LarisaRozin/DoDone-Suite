@@ -1,0 +1,19 @@
+displayName: "Email Delivery Failures"
+conditions:
+  - displayName: "SMTP or email service errors detected"
+    conditionThreshold:
+      filter: 'metric.type="logging.googleapis.com/user/email_delivery_failed" resource.type="cloud_run_revision"'
+      comparison: COMPARISON_GT
+      thresholdValue: 0
+      duration: 300s
+      aggregations:
+        - alignmentPeriod: 60s
+          perSeriesAligner: ALIGN_RATE
+combiner: OR
+notificationChannels:
+  - projects/dodone-mobile/notificationChannels/72047322645513936
+alertStrategy:
+  autoClose: 3600s
+documentation:
+  content: "Email delivery failures detected. Check SMTP configuration and service status."
+  mimeType: text/markdown

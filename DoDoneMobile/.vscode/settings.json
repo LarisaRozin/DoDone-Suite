@@ -1,0 +1,13 @@
+{
+    "github.copilot.advanced": {
+
+    },
+    "github.copilot.chat.codesearch.enabled": true,
+    "terminal.integrated.cwd": "${workspaceFolder}",
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": {
+            "source": "PowerShell",
+            "cwd": "${workspaceFolder}"
+        }
+    }
+}

@@ -1,0 +1,19 @@
+displayName: "Application Critical Errors"
+conditions:
+  - displayName: "High rate of critical errors in logs"
+    conditionThreshold:
+      filter: 'metric.type="logging.googleapis.com/user/application_critical_errors" resource.type="cloud_run_revision"'
+      comparison: COMPARISON_GT
+      thresholdValue: 0
+      duration: 60s
+      aggregations:
+        - alignmentPeriod: 60s
+          perSeriesAligner: ALIGN_RATE
+combiner: OR
+notificationChannels:
+  - projects/dodone-mobile/notificationChannels/72047322645513936
+alertStrategy:
+  autoClose: 1800s
+documentation:
+  content: "Critical application errors detected. Review Cloud Run logs for details."
+  mimeType: text/markdown

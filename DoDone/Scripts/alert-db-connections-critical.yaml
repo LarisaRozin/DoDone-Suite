@@ -1,0 +1,16 @@
+displayName: "DB Connections Critical (>45)"
+conditions:
+  - displayName: "Active connections approaching limit"
+    conditionThreshold:
+      filter: 'metric.type="cloudsql.googleapis.com/database/postgresql/num_backends" resource.type="cloudsql_database"'
+      comparison: COMPARISON_GT
+      thresholdValue: 45
+      duration: 300s
+      aggregations:
+        - alignmentPeriod: 60s
+          perSeriesAligner: ALIGN_MEAN
+combiner: OR
+notificationChannels:
+  - projects/dodone-mobile/notificationChannels/72047322645513936
+alertStrategy:
+  autoClose: 3600s

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "333732290566",
+    "project_id": "dodone-mobile",
+    "storage_bucket": "dodone-mobile.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:333732290566:android:6d231dff009e9aeb8a2387",
+        "android_client_info": {
+          "package_name": "com.larisarozin.dodone"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBp849sWgnISgM2hwT7naDyth3qkaUJKYY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:333732290566:android:e6ff6662d1c1230a8a2387",
+        "android_client_info": {
+          "package_name": "com.larisarozin.dodone.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBp849sWgnISgM2hwT7naDyth3qkaUJKYY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

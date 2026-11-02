@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">DoDone</string>
+    <string name="notification_channel_name">Default Notifications</string>
+    <string name="notification_channel_description">Notifications for tasks, allowances, and bonuses</string>
+</resources>

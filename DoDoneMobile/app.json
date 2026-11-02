@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "DoDone",
+    "owner": "larisarozin-dodone",
+    "slug": "dodonemobile",
+    "version": "1.0.0",
+    "scheme": "dodone",
+    "ios": {
+      "bundleIdentifier": "com.larisarozin.dodone",
+      "supportsTablet": true,
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "package": "com.larisarozin.dodone"
+    },
+    "plugins": [
+      "expo-dev-client"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "99882d85-930a-4d0e-aa9e-25e84060e8a6"
+      }
+    }
+  }
+}

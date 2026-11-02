@@ -1,0 +1,38 @@
+{
+  "displayName": "DoDone Monthly Budget - Warning at $50",
+  "budgetFilter": {
+    "projects": ["projects/dodone-mobile"],
+    "creditTypesTreatment": "INCLUDE_ALL_CREDITS"
+  },
+  "amount": {
+    "specifiedAmount": {
+      "currencyCode": "USD",
+      "units": "100"
+    }
+  },
+  "thresholdRules": [
+    {
+      "thresholdPercent": 0.5,
+      "spendBasis": "CURRENT_SPEND"
+    },
+    {
+      "thresholdPercent": 0.75,
+      "spendBasis": "CURRENT_SPEND"
+    },
+    {
+      "thresholdPercent": 0.9,
+      "spendBasis": "CURRENT_SPEND"
+    },
+    {
+      "thresholdPercent": 1.0,
+      "spendBasis": "CURRENT_SPEND"
+    }
+  ],
+  "notificationsRule": {
+    "pubsubTopic": "projects/dodone-mobile/topics/budget-alerts",
+    "monitoringNotificationChannels": [
+      "projects/dodone-mobile/notificationChannels/72047322645513936"
+    ],
+    "disableDefaultIamRecipients": false
+  }
+}

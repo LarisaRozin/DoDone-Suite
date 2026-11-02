@@ -1,0 +1,16 @@
+displayName: "Periodic Tasks Job Failed"
+conditions:
+  - displayName: "Cloud Run job execution failed"
+    conditionThreshold:
+      filter: 'metric.type="run.googleapis.com/job/completed_execution_count" resource.type="cloud_run_job" resource.label.job_name="dodone-periodic-tasks" metric.label.result="failed"'
+      comparison: COMPARISON_GT
+      thresholdValue: 0
+      duration: 60s
+      aggregations:
+        - alignmentPeriod: 60s
+          perSeriesAligner: ALIGN_DELTA
+combiner: OR
+notificationChannels:
+  - projects/dodone-mobile/notificationChannels/72047322645513936
+alertStrategy:
+  autoClose: 86400s

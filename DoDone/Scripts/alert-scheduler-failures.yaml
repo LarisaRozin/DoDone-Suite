@@ -1,0 +1,19 @@
+displayName: "Cloud Scheduler Job Failed"
+conditions:
+  - displayName: "Scheduler failed to trigger job"
+    conditionThreshold:
+      filter: 'metric.type="logging.googleapis.com/user/scheduler_job_failed" resource.type="cloud_scheduler_job"'
+      comparison: COMPARISON_GT
+      thresholdValue: 0
+      duration: 60s
+      aggregations:
+        - alignmentPeriod: 60s
+          perSeriesAligner: ALIGN_RATE
+combiner: OR
+notificationChannels:
+  - projects/dodone-mobile/notificationChannels/72047322645513936
+alertStrategy:
+  autoClose: 86400s
+documentation:
+  content: "Cloud Scheduler failed to trigger periodic tasks. Check scheduler configuration and permissions."
+  mimeType: text/markdown

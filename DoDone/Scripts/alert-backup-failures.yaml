@@ -1,0 +1,19 @@
+displayName: "Cloud SQL Backup Failed"
+conditions:
+  - displayName: "Database backup operation failed"
+    conditionThreshold:
+      filter: 'metric.type="logging.googleapis.com/user/backup_failed" resource.type="cloudsql_database"'
+      comparison: COMPARISON_GT
+      thresholdValue: 0
+      duration: 60s
+      aggregations:
+        - alignmentPeriod: 60s
+          perSeriesAligner: ALIGN_RATE
+combiner: OR
+notificationChannels:
+  - projects/dodone-mobile/notificationChannels/72047322645513936
+alertStrategy:
+  autoClose: 86400s
+documentation:
+  content: "Automated database backup failed. Check Cloud SQL backup configuration and storage quotas."
+  mimeType: text/markdown

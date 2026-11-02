@@ -1,0 +1,19 @@
+displayName: "Cloud Run Max Instances Reached"
+conditions:
+  - displayName: "Hitting max instance limit"
+    conditionThreshold:
+      filter: 'metric.type="run.googleapis.com/container/instance_count" resource.type="cloud_run_revision" resource.label.service_name="dodone-server"'
+      comparison: COMPARISON_GT
+      thresholdValue: 6
+      duration: 180s
+      aggregations:
+        - alignmentPeriod: 60s
+          perSeriesAligner: ALIGN_MAX
+combiner: OR
+notificationChannels:
+  - projects/dodone-mobile/notificationChannels/72047322645513936
+alertStrategy:
+  autoClose: 3600s
+documentation:
+  content: "Approaching max-instances limit (7). Service may reject requests if demand increases further."
+  mimeType: text/markdown

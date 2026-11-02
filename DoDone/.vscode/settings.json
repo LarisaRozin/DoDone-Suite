@@ -1,0 +1,8 @@
+{
+    "editor.inlineSuggest.edits.allowCodeShifting": "never",
+    "dotnet-test-explorer.testProjectPath": "**/DoDone.Server.Tests.csproj",
+    "dotnet-test-explorer.useTreeView": true,
+    "dotnet-test-explorer.showCodeLens": true,
+    "dotnet-test-explorer.codeLens": true,
+    "dotnet.defaultSolution": "DoDone.sln"
+}

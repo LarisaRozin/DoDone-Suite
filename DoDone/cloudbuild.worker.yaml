@@ -1,0 +1,5 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-f', 'DoDone.Worker/Dockerfile', '-t', 'gcr.io/$PROJECT_ID/dodone-worker', '.']
+images:
+  - 'gcr.io/$PROJECT_ID/dodone-worker'

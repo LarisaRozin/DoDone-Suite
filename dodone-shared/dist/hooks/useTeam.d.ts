@@ -1,0 +1,24 @@
+import type { User } from "../types/User";
+import { PagedListRequest, PagedListResponse } from "../utils/paging";
+import { TeamDetailsResponse, TeamDetailsUpdateRequest, TeamAllowanceIntervalResponse, TeamAllowanceIntervalCreateRequest, TeamAllowanceIntervalUpdateRequest } from "../types/Team";
+export declare function useTeam(request: PagedListRequest): {
+    teamMembersList: PagedListResponse<User> | undefined;
+    loadingTeamMembers: boolean;
+    refreshTeamMembers: (request: PagedListRequest) => void;
+    teamDetails: TeamDetailsResponse | null;
+    loadingTeamDetails: boolean;
+    updatingTeamDetails: boolean;
+    fetchTeamDetails: () => Promise<any>;
+    updateTeamDetails: (teamUpdateRequest: TeamDetailsUpdateRequest) => Promise<import("..").DataResponse<TeamDetailsResponse> | null>;
+    allowanceIntervals: TeamAllowanceIntervalResponse[];
+    loadingAllowanceIntervals: boolean;
+    creatingAllowanceInterval: boolean;
+    updatingAllowanceInterval: boolean;
+    deletingAllowanceInterval: boolean;
+    fetchingAllowanceInterval: boolean;
+    fetchAllowanceIntervals: () => Promise<import("../types/Team").TeamAllowanceIntervalListResponse | null>;
+    fetchAllowanceInterval: (id: number) => Promise<TeamAllowanceIntervalResponse | null>;
+    createAllowanceInterval: (request: TeamAllowanceIntervalCreateRequest) => Promise<TeamAllowanceIntervalResponse | null>;
+    updateAllowanceInterval: (request: TeamAllowanceIntervalUpdateRequest) => Promise<TeamAllowanceIntervalResponse | null>;
+    deleteAllowanceInterval: (id: number) => Promise<boolean>;
+};

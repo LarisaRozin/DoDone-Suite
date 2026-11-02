@@ -1,0 +1,19 @@
+displayName: "Unusual Authentication Activity"
+conditions:
+  - displayName: "High rate of failed login attempts"
+    conditionThreshold:
+      filter: 'metric.type="logging.googleapis.com/user/failed_auth_attempts" resource.type="cloud_run_revision"'
+      comparison: COMPARISON_GT
+      thresholdValue: 10
+      duration: 300s
+      aggregations:
+        - alignmentPeriod: 60s
+          perSeriesAligner: ALIGN_RATE
+combiner: OR
+notificationChannels:
+  - projects/dodone-mobile/notificationChannels/72047322645513936
+alertStrategy:
+  autoClose: 1800s
+documentation:
+  content: "High rate of failed authentication attempts detected. Possible brute force attack or misconfigured client."
+  mimeType: text/markdown

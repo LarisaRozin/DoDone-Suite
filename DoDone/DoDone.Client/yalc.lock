@@ -1,0 +1,9 @@
+{
+  "version": "v1",
+  "packages": {
+    "dodone-shared": {
+      "signature": "967e46c7fae4cb9453ab0f9f57a5c736",
+      "file": true
+    }
+  }
+}

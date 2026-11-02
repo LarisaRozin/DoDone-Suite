@@ -1,0 +1,63 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "C#: DoDone.Server Debug (Local)",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}/DoDone.Server/DoDone.Server.csproj",
+            // "launchBrowser": {
+            //     "enabled": true,
+            //     "args": "https://localhost:5215",
+            //     "windows": {
+            //         "command": "cmd.exe",
+            //         "args": "/C start https://localhost:5215"
+            //     }
+            // }
+        },
+        {
+            "name": "C#: DoDone.Server Debug (ProdDB)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/DoDone.Server/bin/Debug/net9.0/DoDone.Server.dll",
+            "args": ["--urls", "https://0.0.0.0:5215;http://0.0.0.0:5214"],
+            "cwd": "${workspaceFolder}/DoDone.Server",
+            "justMyCode": false,
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "DevProdDB",
+                "ASPNETCORE_URLS": "https://0.0.0.0:5215;http://0.0.0.0:5214"
+            },
+            "console": "internalConsole",
+            "stopAtEntry": false
+            // "launchBrowser": {
+            //     "enabled": true,
+            //     "args": "https://localhost:5215",
+            //     "windows": {
+            //         "command": "cmd.exe",
+            //         "args": "/C start https://localhost:5215"
+            //     }
+            // }
+        },
+        {
+            "name": ".NET Core Test Debug (All)",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "dotnet",
+            "args": ["test", "${workspaceFolder}/DoDone.Server.Tests/DoDone.Server.Tests.csproj"],
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        // {
+        //     "name": ".NET Core Test Debug (AllowanceHistoryService)",
+        //     "type": "coreclr",
+        //     "request": "launch",
+        //     "program": "dotnet",
+        //     "args": ["test", "${workspaceFolder}/DoDone.Server.Tests/DoDone.Server.Tests.csproj", "--filter", "AllowanceHistoryService"],
+        //     "cwd": "${workspaceFolder}",
+        //     "console": "internalConsole",
+        //     "stopAtEntry": false
+        // }
+    ]
+}

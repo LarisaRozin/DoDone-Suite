@@ -1,0 +1,79 @@
+{
+  "cli": {
+    "version": ">= 16.20.1",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "ios": {
+        "buildConfiguration": "Debug",
+        "node": "22.11.0",
+        "simulator": true,
+        "image": "latest"
+
+      },
+      "android": {
+        "gradleCommand": ":app:bundleDevPlayDebug"
+      },
+      "env": {
+        "EXPO_PUBLIC_APP_VARIANT": "development"
+      }
+    },
+    "preview": {
+      "autoIncrement": true,
+      "distribution": "store",
+      "ios": {
+        "buildConfiguration": "Release",
+        "node": "22.11.0",
+        "simulator": false,
+        "image": "latest"
+
+      },
+      "android": {
+        "gradleCommand": ":app:bundleDevPlayDebug"
+      },
+      "env": {
+        "EXPO_PUBLIC_APP_VARIANT": "preview"
+      }
+    },
+    "production": {
+      "autoIncrement": true,
+      "ios": {
+        "buildConfiguration": "Release",
+        "node": "22.11.0",
+        "simulator": false,
+        "image": "latest"
+      },
+      "android": {
+        "gradleCommand": ":app:bundleProdPlayRelease"
+      },
+      "env": {
+        "EXPO_PUBLIC_APP_VARIANT": "production"
+      }
+    }
+  },
+  "submit": {
+    "preview": {
+      "android": {
+        "applicationId": "com.larisarozin.dodone"
+      },
+      "ios": {
+        "appleId": "LarisaRozin@gmail.com",
+        "ascAppId": "6756928380",
+        "appleTeamId": "SWVHSFA58B"
+      }
+    },
+    "production": {
+      "android": {
+        "applicationId": "com.larisarozin.dodone"
+      },
+      "ios": {
+        "appleId": "LarisaRozin@gmail.com",
+        "ascAppId": "6756928380",
+        "appleTeamId": "SWVHSFA58B"
+      }
+    }
+  }
+}

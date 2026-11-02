@@ -1,0 +1,26 @@
+buildscript {
+    ext {
+        buildToolsVersion = "36.0.0"
+        minSdkVersion = 24
+        compileSdkVersion = 36
+        targetSdkVersion = 36
+        ndkVersion = "27.1.12297006"
+        kotlinVersion = "2.1.20"
+    }
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        // Specify Android Gradle Plugin version compatible with the Gradle wrapper
+        classpath("com.android.tools.build:gradle:8.4.0")
+        classpath("com.facebook.react:react-native-gradle-plugin")
+        // Use the Kotlin version defined in ext
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
+        classpath("com.google.gms:google-services:4.4.2")
+        classpath("com.google.firebase:firebase-crashlytics-gradle:3.0.2")
+        classpath("com.google.firebase:perf-plugin:1.4.2")
+    }
+}
+
+apply plugin: "com.facebook.react.rootproject"

@@ -1,0 +1,6 @@
+@dodone.Server_HostAddress = http://localhost:5214
+
+GET {{dodone.Server_HostAddress}}/api/grade/list
+Accept: application/json
+
+###

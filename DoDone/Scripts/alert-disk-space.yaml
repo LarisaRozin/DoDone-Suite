@@ -1,0 +1,19 @@
+displayName: "Cloud SQL Disk Space Critical (<20% free)"
+conditions:
+  - displayName: "Disk utilization too high"
+    conditionThreshold:
+      filter: 'metric.type="cloudsql.googleapis.com/database/disk/utilization" resource.type="cloudsql_database"'
+      comparison: COMPARISON_GT
+      thresholdValue: 0.80
+      duration: 300s
+      aggregations:
+        - alignmentPeriod: 60s
+          perSeriesAligner: ALIGN_MEAN
+combiner: OR
+notificationChannels:
+  - projects/dodone-mobile/notificationChannels/72047322645513936
+alertStrategy:
+  autoClose: 3600s
+documentation:
+  content: "Database disk is over 80% full. Consider increasing storage size or cleaning up data."
+  mimeType: text/markdown
